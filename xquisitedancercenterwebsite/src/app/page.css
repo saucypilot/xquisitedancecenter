@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+.homePage {
+  display: flex;
+}
+
+.firstImage img {
+  background: no-repeat center center fixed;
+  z-index: -1;
+}
+
+.firstImageText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.firstImageText h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.firstImageText p {
+  font-size: 1.25rem;
+}
