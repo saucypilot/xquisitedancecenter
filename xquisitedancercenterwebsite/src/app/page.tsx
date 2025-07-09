@@ -6,7 +6,7 @@ export default function Home() {
       <div className="firstImage">
         <img src="/homepagePic1.png" alt="Homepage first image"/>
         <div className="firstImageText">
-          <h1>Welcome to Xquisite Dancer Center</h1>
+          <h1>Welcome to Xquisite Dance Center</h1>
           <p>Where Dance Meets Passion</p>
         </div>
         <div className="middleSection">

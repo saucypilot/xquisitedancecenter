@@ -66,3 +66,57 @@ nav ul {
 a {
     color: black;
 }
+
+.footer {
+  background: #111;
+  color: #eee;
+  padding: 2rem 0;
+  font-family: sans-serif;
+}
+.footer .footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-text {
+  margin: 0;
+  font-size: 1rem;
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.footer-contact {
+  color: #ededed;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.social-links img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;   /* Ensures logos are not stretched */
+  aspect-ratio: 1 / 1;   /* Always square */
+  filter: brightness(0.9);
+  background: transparent;
+  transition: transform 0.18s, filter 0.18s;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.social-links a:hover img {
+  transform: scale(1.12) rotate(-6deg);
+  filter: brightness(1.12) drop-shadow(0 2px 8px #5865f250);
+}
+
