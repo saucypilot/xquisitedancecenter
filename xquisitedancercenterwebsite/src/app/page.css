@@ -1,15 +1,21 @@
 @import "tailwindcss";
 
+/* ----------------------------------------
+   Home Page Layout
+-----------------------------------------*/
 .homePage {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
 }
 
+/* ----------------------------------------
+   Hero Section (First Image + Text)
+-----------------------------------------*/
 .firstImage img {
   background: no-repeat center center fixed;
   z-index: -1;
+  width: 100%;
 }
 
 .firstImageText {
@@ -33,14 +39,27 @@
 
 .firstImageText p {
   font-size: 1.25rem;
-
 }
 
+/* ----------------------------------------
+   General Headings
+-----------------------------------------*/
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
+/* ----------------------------------------
+   Middle Section (Mission & Salsa Image)
+-----------------------------------------*/
+.middleSection {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  color: black;
+  align-items: center;
+  gap: 2rem;
+}
 
 .missionStatement {
   display: flex;
@@ -50,18 +69,28 @@ h2 {
   padding: 2rem;
 }
 
-.middleSection{
-  display: flex;
-  flex-direction: row;
-  padding: 2rem;
-  color: black;
+.missionStatementHeading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.middleSection img{
+.missionStatementParagraph {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 540px;
+}
+
+.middleSection img {
   width: 50%;
-  height: 50%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
 }
 
+/* ----------------------------------------
+   Class Schedule Section
+-----------------------------------------*/
 .classScheduleSection {
   padding: 2rem;
   text-align: center;
