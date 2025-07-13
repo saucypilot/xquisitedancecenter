@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="homePage">
       <div className="firstImage">
-        <img src="/homepagePic1.png" alt="Homepage first image" />
+        <img src="/Timeline1-ezgif.com-cut.gif" alt="Homepage first image" />
         <div className="firstImageText">
           <h1>Welcome to Xquisite Dance Center</h1>
           <p>Where Dance Meets Passion</p>
@@ -22,7 +22,7 @@ export default function Home() {
           </p>
         </div>
         <img
-          src="/salsaCouple.png"
+          src="/Video-23.gif"
           alt="Salsa Dance"
           className="salsaImage"
         />
