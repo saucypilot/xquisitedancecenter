@@ -35,7 +35,7 @@ export default function Home() {
             <strong>Day:</strong> Every Thursday
           </p>
           <p>
-            <strong>Time:</strong> 7:30 PM
+            <strong>Time:</strong> 8:30 PM
           </p>
           <p>
             <strong>Location:</strong> UC Building, University of Texas at

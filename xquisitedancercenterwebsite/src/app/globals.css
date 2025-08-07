@@ -55,14 +55,6 @@ header{
     color: black;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    padding: 0;
-    margin: 0;
-}
-
 a {
     color: black;
 }
