@@ -53,7 +53,7 @@ h2 {
 }
 
 /* ----------------------------------------
-   Middle Section (Mission & Salsa Image)
+   Middle Section
 -----------------------------------------*/
 .middleSection {
   display: flex;
@@ -89,6 +89,7 @@ h2 {
   height: auto;
   border-radius: 1rem;
   object-fit: cover;
+  height: 100vh;
 }
 
 /* ----------------------------------------
@@ -116,4 +117,91 @@ h2 {
   font-size: 1.1rem;
   line-height: 1.6;
   text-align: left;
+}
+/* ----------------------------------------
+   Responsive Fixes
+-----------------------------------------*/
+@media (max-width: 1024px) {
+/* Hero text always over the GIF */
+.firstImage {
+  position: relative;
+}
+
+.firstImageText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  padding: 0 1rem;
+}
+
+/* Make sure the hero image is behind everything */
+.firstImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Transparent header so logo blends into GIF */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 3; /* above hero text */
+}
+
+/* Responsive fixes */
+@media (max-width: 1024px) {
+
+
+  .middleSection img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .footer .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+  /* Middle section: stack vertically */
+  .middleSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .middleSection img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust hero text size */
+  .firstImageText h1 {
+    font-size: 1.8rem;
+  }
+
+  .firstImageText p {
+    font-size: 1rem;
+  }
+
+  /* Footer: stack items */
+  .footer .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
 }
