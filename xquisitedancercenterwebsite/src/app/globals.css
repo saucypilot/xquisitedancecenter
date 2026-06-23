@@ -1,114 +1,173 @@
 @import "tailwindcss";
 
 :root {
-  --background: black;
-  --foreground: #171717;
+  --background: #07090d;
+  --foreground: #f7f7f2;
 }
-
-
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: black;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
+  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-}
-
-
-header{
-    position: absolute;
-    background: transparent;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    top: 10px;
-    padding: 0 20px;
-    align-items: center;
-}
-
-.leftSideHeader{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    width: 20%;
-
-}
-
-.title {
-    font-weight: bold;
-    color: black;
 }
 
 a {
-    color: black;
+  color: inherit;
 }
 
-.footer {
-  background: #111;
-  color: #eee;
-  padding: 2rem 0;
-  font-family: sans-serif;
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #42f2e8;
+  outline-offset: 4px;
 }
-.footer .footerContainer {
-  max-width: 1200px;
-  margin: 0 auto;
+
+.siteHeader {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.footer-text {
-  margin: 0;
-  font-size: 1rem;
-}
-.footer-right {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  background: rgba(7, 9, 13, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
 }
 
-.footer-contact {
-  color: #ededed;
-  font-size: 1.15rem;
-  letter-spacing: 0.02em;
-}
-
-.social-links {
-  display: flex;
-  flex-direction: row;
+.brand {
+  display: inline-flex;
   align-items: center;
   gap: 0.7rem;
+  min-width: 0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
-.social-links img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;   /* Ensures logos are not stretched */
-  aspect-ratio: 1 / 1;   /* Always square */
-  filter: brightness(0.9);
-  background: transparent;
-  transition: transform 0.18s, filter 0.18s;
+.brandLogo {
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #202020;
+}
+
+.siteNav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.siteNav a {
+  min-height: 2.45rem;
+  display: inline-flex;
+  align-items: center;
   border-radius: 8px;
-  padding: 0;
+  padding: 0.65rem 0.8rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.95rem;
+  font-weight: 750;
+  text-decoration: none;
 }
 
-.social-links a:hover img {
-  transform: scale(1.12) rotate(-6deg);
-  filter: brightness(1.12) drop-shadow(0 2px 8px #5865f250);
+.siteNav a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.11);
 }
 
+.footer {
+  background: #050608;
+  color: #f7f7f2;
+  padding: 2.5rem clamp(1.25rem, 4vw, 5rem);
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.footerTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.footerText {
+  margin: 0.5rem 0 0;
+  color: rgba(247, 247, 242, 0.7);
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.footerLinks a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  padding: 0.58rem 0.75rem;
+  color: rgba(255, 255, 255, 0.84);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+.footerLinks a:hover {
+  color: #fff;
+  border-color: rgba(255, 15, 123, 0.72);
+}
+
+@media (max-width: 760px) {
+  .siteHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 0.8rem;
+  }
+
+  .siteNav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
+
+  .siteNav a {
+    flex: 0 0 auto;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+  }
+
+  .footerLinks {
+    justify-content: flex-start;
+  }
+}

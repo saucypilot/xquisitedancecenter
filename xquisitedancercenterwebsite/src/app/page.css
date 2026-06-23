@@ -1,207 +1,375 @@
-@import "tailwindcss";
-
-/* ----------------------------------------
-   Home Page Layout
------------------------------------------*/
 .homePage {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background: #07090d;
+  color: #f7f7f2;
+  overflow: hidden;
 }
 
-/* ----------------------------------------
-   Hero Section (First Image + Text)
------------------------------------------*/
-.firstImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.firstImage img {
-  background: no-repeat center center fixed;
-  z-index: -1;
-  width: 100%;
-}
-
-.firstImageText {
-  position: absolute;
-  text-align: center;
-  color: white;
-}
-
-.firstImageText h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: azure;
-}
-
-.firstImageText p {
-  font-size: 1.25rem;
-}
-
-/* ----------------------------------------
-   General Headings
------------------------------------------*/
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-/* ----------------------------------------
-   Middle Section
------------------------------------------*/
-.middleSection {
-  display: flex;
-  flex-direction: row;
-  padding: 2rem;
-  color: black;
-  align-items: center;
-  gap: 2rem;
-}
-
-.missionStatement {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-.missionStatementHeading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.missionStatementParagraph {
-  font-size: 1.1rem;
-  text-align: center;
-  max-width: 540px;
-}
-
-.middleSection img {
-  width: 50%;
-  height: auto;
-  border-radius: 1rem;
-  object-fit: cover;
-  height: 100vh;
-}
-
-/* ----------------------------------------
-   Class Schedule Section
------------------------------------------*/
-.classScheduleSection {
-  padding: 2rem;
-  text-align: center;
-  background-color: #f7f7f7;
-  color: #111;
-}
-
-.classScheduleSection h2 {
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
-}
-
-.classBox {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 0 auto;
-  max-width: 480px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  text-align: left;
-}
-/* ----------------------------------------
-   Responsive Fixes
------------------------------------------*/
-@media (max-width: 1024px) {
-/* Hero text always over the GIF */
-.firstImage {
+.heroSection {
   position: relative;
+  min-height: 92vh;
+  display: grid;
+  align-items: end;
+  padding: 9rem clamp(1.25rem, 4vw, 5rem) 4rem;
+  isolation: isolate;
 }
 
-.firstImageText {
+.heroVideo,
+.heroShade {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  z-index: 2;
-  padding: 0 1rem;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Make sure the hero image is behind everything */
-.firstImage img {
-  display: block;
-  width: 100%;
-  height: auto;
+.heroVideo {
   object-fit: cover;
-  z-index: 1;
+  z-index: -3;
 }
 
-/* Transparent header so logo blends into GIF */
-header {
+.heroShade {
+  background:
+    linear-gradient(90deg, rgba(7, 9, 13, 0.92), rgba(7, 9, 13, 0.46) 54%, rgba(7, 9, 13, 0.82)),
+    linear-gradient(0deg, #07090d 0%, rgba(7, 9, 13, 0.18) 45%, rgba(7, 9, 13, 0.8) 100%);
+  z-index: -2;
+}
+
+.heroContent {
+  width: min(780px, 100%);
+}
+
+.eyebrow,
+.sectionLabel,
+.panelKicker {
+  margin: 0 0 0.85rem;
+  color: #42f2e8;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heroContent h1,
+.introText h2,
+.sectionHeader h2,
+.connectCopy h2 {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.96;
+}
+
+.heroContent h1 {
+  max-width: 780px;
+  font-size: clamp(3.1rem, 9vw, 7.8rem);
+}
+
+.heroCopy {
+  max-width: 650px;
+  margin: 1.4rem 0 0;
+  color: #e7e8e2;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 2rem 0;
+}
+
+.primaryAction,
+.secondaryAction,
+.linkCard {
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 850;
+}
+
+.primaryAction {
+  background: #ff0f7b;
+  color: white;
+}
+
+.secondaryAction {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover,
+.linkCard:hover {
+  transform: translateY(-2px);
+}
+
+.styleRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.styleRail span {
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  padding: 0.55rem 0.75rem;
+  color: #fbf7ef;
+  background: rgba(7, 9, 13, 0.52);
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+.introSection,
+.classSection,
+.mediaSection,
+.connectSection {
+  padding: clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 5rem);
+}
+
+.introSection {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(280px, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  background: #f6f1e8;
+  color: #151515;
+}
+
+.introMedia {
+  position: relative;
+  min-height: 480px;
+}
+
+.introLogo {
   position: absolute;
-  top: 0;
+  z-index: 2;
+  width: min(38vw, 260px);
+  aspect-ratio: 1;
+  object-fit: contain;
   left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: #202020;
+  border: 7px solid #ffb400;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
+}
+
+.introGif {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(78%, 560px);
+  height: 410px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.22);
+}
+
+.introText {
+  max-width: 650px;
+}
+
+.introText h2,
+.sectionHeader h2,
+.connectCopy h2 {
+  font-size: clamp(2.1rem, 5vw, 4.8rem);
+}
+
+.introText p:not(.sectionLabel),
+.classPanel p,
+.connectCopy p:not(.sectionLabel) {
+  color: #34342e;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.classSection {
+  background: #07090d;
+}
+
+.sectionHeader {
+  width: min(900px, 100%);
+  margin-bottom: 2rem;
+}
+
+.classGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr;
+  gap: 1rem;
+}
+
+.classPanel {
+  min-height: 250px;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: #10151c;
+}
+
+.featuredPanel {
+  background:
+    linear-gradient(135deg, rgba(255, 15, 123, 0.28), rgba(66, 242, 232, 0.11)),
+    #10151c;
+}
+
+.classPanel h3 {
+  margin: 0 0 0.85rem;
+  color: #fff;
+  font-size: clamp(1.55rem, 3vw, 2.7rem);
+  line-height: 1;
+}
+
+.classPanel p {
+  margin: 0;
+  color: #d8d9d3;
+}
+
+.mediaSection {
+  background: #11161d;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.videoCard {
+  position: relative;
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #050608;
+}
+
+.videoCard video {
   width: 100%;
-  background: transparent;
-  z-index: 3; /* above hero text */
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  display: block;
 }
 
-/* Responsive fixes */
-@media (max-width: 1024px) {
+.videoCaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 5rem 1rem 1rem;
+  background: linear-gradient(0deg, rgba(5, 6, 8, 0.92), rgba(5, 6, 8, 0));
+}
 
+.videoCaption h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.2rem;
+}
 
-  .middleSection img {
+.connectSection {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(280px, 1.2fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  background: #f7f7f2;
+  color: #151515;
+}
+
+.linkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.linkCard {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem;
+  border: 1px solid #ded9cd;
+  border-radius: 8px;
+  color: #111;
+  background: #fff;
+}
+
+.linkCard span {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 900;
+}
+
+.linkCard small {
+  color: #5b5b52;
+  font-size: 0.95rem;
+}
+
+.linkCard:hover {
+  border-color: #ff0f7b;
+  background: #fff7fb;
+}
+
+@media (max-width: 980px) {
+  .introSection,
+  .connectSection,
+  .classGrid,
+  .videoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroSection {
+    min-height: 850px;
+  }
+
+  .introMedia {
+    min-height: 420px;
+  }
+
+  .introGif {
+    width: 82%;
+    height: 340px;
+  }
+
+  .videoCard,
+  .videoCard video {
+    min-height: 390px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    min-height: 760px;
+    padding-top: 7.5rem;
+  }
+
+  .heroActions,
+  .primaryAction,
+  .secondaryAction {
     width: 100%;
-    max-width: 500px;
-    height: auto;
   }
 
-  .footer .footerContainer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-  }
-}
-  /* Middle section: stack vertically */
-  .middleSection {
-    flex-direction: column;
-    text-align: center;
+  .introMedia {
+    min-height: 360px;
   }
 
-  .middleSection img {
-    width: 100%;
-    height: auto;
-    max-width: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Adjust hero text size */
-  .firstImageText h1 {
-    font-size: 1.8rem;
+  .introLogo {
+    width: 170px;
+    border-width: 5px;
   }
 
-  .firstImageText p {
-    font-size: 1rem;
+  .introGif {
+    width: 88%;
+    height: 300px;
   }
 
-  /* Footer: stack items */
-  .footer .footerContainer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
+  .linkGrid {
+    grid-template-columns: 1fr;
   }
 }

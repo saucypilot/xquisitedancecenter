@@ -1,63 +1,91 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Xquisite Dance Center",
-  description: "Dance meets passion.",
+  title: "Xquisite Dance Center | UTA Social Dance Club",
+  description:
+    "Free social dance classes, community updates, videos, and merch links for Xquisite Dance Center.",
 };
+
+const footerLinks = [
+  {
+    label: "Shirts",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSdccnvPo4DboJPnXLIQwvsp5bDFumMbiwf58J5UQ6YON_JFwQ/viewform?pli=1",
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@xquisitemegacrew2992",
+  },
+  {
+    label: "Discord",
+    href: "https://discord.com/invite/YXXanS3awY",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/xquisitemegacrew/#",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/xquisitedancecenter/",
+  },
+];
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header>
-          <div className="leftSideHeader">
-            <Image src="/logo.png" alt="Xquisite Dance Center Logo" width={50} height={50}/>
-            <div className="title">
-                Xquisite Dance Center
-            </div>
-          </div>
+      <body>
+        <header className="siteHeader">
+          <Link className="brand" href="/" aria-label="Xquisite Dance Center home">
+            <Image
+              src="/logo.png"
+              alt=""
+              width={46}
+              height={46}
+              priority
+              className="brandLogo"
+            />
+            <span>Xquisite</span>
+          </Link>
+
+          <nav className="siteNav" aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#classes">Classes</a>
+            <a href="#media">Videos</a>
+            <a href="#connect">Links</a>
+          </nav>
         </header>
+
         {children}
+
         <footer className="footer">
           <div className="footerContainer">
-            <div className="footer-left">
-              <span style={{ fontSize: "0.98rem", opacity: 0.7 }}>
-                &copy; {new Date().getFullYear()} Xquisite Dance Center. All rights reserved.
-              </span>
+            <div>
+              <p className="footerTitle">Xquisite Dance Center</p>
+              <p className="footerText">
+                UTA social dance club. Classes resume Fall 2026.
+              </p>
             </div>
-            <div className="footer-right">
-              <span className="footer-contact" style={{ fontWeight: 500, marginRight: "1rem" }}>
-                Contact us:
-              </span>
-              <div className="social-links">
-                <a href="https://discord.gg/y4CnAWQc" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                  <img src="/discord.png" alt="Discord logo" />
+
+            <div className="footerLinks" aria-label="Social links">
+              {footerLinks.map((link) => (
+                <a
+                  href={link.href}
+                  key={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
                 </a>
-                <a href="https://www.instagram.com/xquisitedancecenter/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <img src="/instagram.png" alt="Instagram logo" />
-                </a>
-              </div>
+              ))}
             </div>
           </div>
         </footer>
-
       </body>
     </html>
   );
