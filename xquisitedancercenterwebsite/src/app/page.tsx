@@ -41,13 +41,24 @@ const media = [
   },
 ];
 
+const executiveBoardImages = [
+  "/670638011_17913438297373082_5900253630062043767_n.jpg",
+  "/683112945_17913438333373082_5837402593054778772_n.jpg",
+  "/683709708_17913438354373082_1929913105132097995_n.jpg",
+  "/683759886_17913438285373082_7091190647691317541_n.jpg",
+  "/685045701_17913438306373082_1878532762844997167_n.jpg",
+  "/685065540_17913438345373082_8624344941972304726_n.jpg",
+  "/687776729_17913438282373082_5451678484000451295_n.jpg",
+  "/689007418_17913438330373082_8607349456767041844_n.jpg",
+];
+
 export default function Home() {
   return (
     <main className="homePage">
       <section className="heroSection" aria-label="Xquisite Dance Center">
         <video
           className="heroVideo"
-          src="/Video-291.mp4"
+          src="/Video-337.mp4"
           autoPlay
           muted
           loop
@@ -142,6 +153,31 @@ export default function Home() {
             <h3>Social Dance</h3>
             <p>Salsa, bachata, country, line dance, hiphop, and community.</p>
           </div>
+        </div>
+      </section>
+
+      <section className="boardSection" id="board">
+        <div className="sectionHeader">
+          <p className="sectionLabel">Leadership</p>
+          <h2>Meet the executive board.</h2>
+        </div>
+
+        <div className="boardGrid">
+          {executiveBoardImages.map((src, index) => (
+            <article className="boardCard" key={src}>
+              <Image
+                src={src}
+                alt={`Xquisite executive board member ${index + 1}`}
+                width={640}
+                height={760}
+                className="boardImage"
+              />
+              <div className="boardCaption">
+                <span>Executive Board</span>
+                <strong>Member {index + 1}</strong>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 

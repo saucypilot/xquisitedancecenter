@@ -56,6 +56,7 @@ export default function RootLayout({
           <nav className="siteNav" aria-label="Main navigation">
             <a href="#about">About</a>
             <a href="#classes">Classes</a>
+            <a href="#board">Board</a>
             <a href="#media">Videos</a>
             <a href="#connect">Links</a>
           </nav>
