@@ -71,8 +71,8 @@ export default function Home() {
           <p className="eyebrow">UTA Social Dance Club</p>
           <h1>Xquisite Dance Center</h1>
           <p className="heroCopy">
-            Free, welcoming dance classes for salsa, bachata, country, line
-            dance, and hiphop. Classes resume Fall 2026.
+            Welcoming dance classes for salsa, bachata, country, line dance,
+            and hiphop. Classes resume Fall 2026.
           </p>
 
           <div className="heroActions" aria-label="Primary links">
@@ -120,9 +120,9 @@ export default function Home() {
           <h2>Dance should feel accessible, social, and alive.</h2>
           <p>
             Xquisite creates a space where students can learn technique, build
-            confidence, and connect with people through movement. The club keeps
-            classes free so anyone can step in, try something new, and grow with
-            the community.
+            confidence, and connect with people through movement. The club
+            keeps the community active with social classes, events, and room to
+            grow.
           </p>
         </div>
       </section>
@@ -145,8 +145,8 @@ export default function Home() {
           </div>
           <div className="classPanel">
             <span className="panelKicker">Cost</span>
-            <h3>Free</h3>
-            <p>No membership barrier, no experience requirement.</p>
+            <h3>Membership Fee</h3>
+            <p>Classes require a membership fee. No experience requirement.</p>
           </div>
           <div className="classPanel">
             <span className="panelKicker">Focus</span>

@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Xquisite Dance Center | UTA Social Dance Club",
   description:
-    "Free social dance classes, community updates, videos, and merch links for Xquisite Dance Center.",
+    "Social dance classes, community updates, videos, and merch links for Xquisite Dance Center.",
 };
 
 const footerLinks = [
