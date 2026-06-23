@@ -42,14 +42,14 @@ const media = [
 ];
 
 const executiveBoardImages = [
+  "/685045701_17913438306373082_1878532762844997167_n.jpg",
+  "/689007418_17913438330373082_8607349456767041844_n.jpg",
+  "/687776729_17913438282373082_5451678484000451295_n.jpg",
   "/670638011_17913438297373082_5900253630062043767_n.jpg",
   "/683112945_17913438333373082_5837402593054778772_n.jpg",
   "/683709708_17913438354373082_1929913105132097995_n.jpg",
   "/683759886_17913438285373082_7091190647691317541_n.jpg",
-  "/685045701_17913438306373082_1878532762844997167_n.jpg",
   "/685065540_17913438345373082_8624344941972304726_n.jpg",
-  "/687776729_17913438282373082_5451678484000451295_n.jpg",
-  "/689007418_17913438330373082_8607349456767041844_n.jpg",
 ];
 
 export default function Home() {
@@ -164,7 +164,10 @@ export default function Home() {
 
         <div className="boardGrid">
           {executiveBoardImages.map((src, index) => (
-            <article className="boardCard" key={src}>
+            <article
+              className={`boardCard ${index === 0 ? "presidentCard" : ""}`}
+              key={src}
+            >
               <Image
                 src={src}
                 alt={`Xquisite executive board member ${index + 1}`}
@@ -172,10 +175,6 @@ export default function Home() {
                 height={760}
                 className="boardImage"
               />
-              <div className="boardCaption">
-                <span>Executive Board</span>
-                <strong>Member {index + 1}</strong>
-              </div>
             </article>
           ))}
         </div>
